@@ -29,7 +29,6 @@ func main() {
 }
 
 func partOne(array []int) int {
-	fmt.Println("array", array)
 	for _, i := range array {
 		for _, j := range array {
 			if i+j == 2020 {
