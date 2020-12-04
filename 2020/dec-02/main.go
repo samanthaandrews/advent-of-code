@@ -42,7 +42,7 @@ func main() {
 		}
 	}
 	fmt.Println("Part one", partOneTally)
-	fmt.Println("Part one", partTwoTally)
+	fmt.Println("Part two", partTwoTally)
 }
 
 func checkCountInRange(password string, letter string, start int, stop int) bool {
@@ -50,6 +50,7 @@ func checkCountInRange(password string, letter string, start int, stop int) bool
 }
 
 func checkIndices(password string, letter string, start int, stop int) bool {
-	// make sure that the values at the start and stop positions are not equal
-	return strings.Index(password, letter) == start || strings.Index(password, letter) == stop
+	startPasswordValue := string(password[start])
+	stopPasswordValue := string(password[stop])
+	return (startPasswordValue == letter || stopPasswordValue == letter) && (startPasswordValue != stopPasswordValue)
 }
