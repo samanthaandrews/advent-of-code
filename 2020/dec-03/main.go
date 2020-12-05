@@ -14,7 +14,6 @@ func main() {
 	}
 	contents := string(bytes)
 	split := strings.Split(contents, "\n")
-	// split = split[:len(split)-1]
 	trees := make([][]bool, len(split))
 	for i, s := range split {
 		trees[i] = make([]bool, len(s))
@@ -32,9 +31,9 @@ func main() {
 func checkSlope(down, right int, trees [][]bool) int {
 	hit := 0
 	for time := 0; time*down < len(trees); time++ {
-		traversed := time * down
-		column := (time * right) % len(trees[traversed])
-		if trees[traversed][column] {
+		row := time * down
+		column := (time * right) % len(trees[row])
+		if trees[row][column] {
 			hit++
 		}
 	}
